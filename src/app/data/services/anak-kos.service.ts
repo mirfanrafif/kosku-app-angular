@@ -17,9 +17,13 @@ export class AnakKosService {
     { id: "qweqweqeq", nama: "Irfan" },
   ];
 
-  constructor() {}
+  constructor() { }
 
   getAnakKos(): Observable<AnakKos[]> {
     return of(this.anakKos);
+  }
+
+  addAnakKos(id: string, nama: string) {
+    this.anakKos.push({ id: id, nama: nama })
   }
 }

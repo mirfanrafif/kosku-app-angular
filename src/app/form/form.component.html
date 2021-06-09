@@ -1,3 +1,6 @@
 <p>
-  form works!
+  <input type="text" name="ID" id="id" #id>
+  <input type="text" name="Nama" id="nama" #nama>
+  <button (click)="addData(id.value, nama.value)">Simpan</button><br>
+  <button (click)="goBack()">Kembali</button>
 </p>
