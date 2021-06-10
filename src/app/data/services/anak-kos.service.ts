@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AnakKos } from "../entities/AnakKos";
 import { Observable, of } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -19,6 +19,10 @@ export class AnakKosService {
     { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
   ];
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private httpClient: HttpClient) { }
 
   getAnakKos(): Observable<AnakKos[]> {
@@ -28,8 +32,19 @@ export class AnakKosService {
       )
   }
 
-  addAnakKos(id: string, nama: string, asal: string, nohp: string) {
-    this.anakKos.push({ _id: id, nama: nama, nohp: nohp, asal: asal })
+  addAnakKos(nama: string, asal: string, nohp: string) {
+    var anakKos = {
+      nama: nama,
+      asal: asal,
+      nohp: nohp
+    };
+    var request = JSON.stringify(anakKos)
+    console.log(request)
+    return this.httpClient.post<AnakKos>('https://kosku-service.herokuapp.com/anakkos', request, this.httpOptions)
+      .pipe(
+        tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
+        catchError(this.handleError<AnakKos>('getAnakKos'))
+      );
   }
 
   findAnakKos(id: string) {
