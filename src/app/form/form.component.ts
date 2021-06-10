@@ -14,8 +14,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addData(id: string, nama: string) {
-    this.anakKosService.addAnakKos(id, nama)
+  addData(id: string, nama: string, asal: string, nomorhp: string) {
+    this.anakKosService.addAnakKos(id, nama, asal, nomorhp)
     this.goBack()
   }
 

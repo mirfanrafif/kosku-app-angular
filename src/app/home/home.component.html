@@ -5,12 +5,16 @@
       <tr>
         <td>ID</td>
         <td>Nama</td>
+        <td>Asal</td>
+        <td>No HP</td>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of anakKos">
-        <td>{{ item.id }}</td>
+      <tr *ngFor="let item of anakKos" routerLink="/detail/{{item._id}}">
+        <td>{{ item._id }}</td>
         <td>{{ item.nama }}</td>
+        <td>{{ item.asal }}</td>
+        <td>{{ item.nohp }}</td>
       </tr>
     </tbody>
   </table>

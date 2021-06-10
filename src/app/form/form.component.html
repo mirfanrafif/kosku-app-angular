@@ -1,6 +1,8 @@
 <p>
-  <input type="text" name="ID" id="id" #id>
-  <input type="text" name="Nama" id="nama" #nama>
-  <button (click)="addData(id.value, nama.value)">Simpan</button><br>
+  <input type="text" name="ID" id="id" #id> <br>
+  <input type="text" name="Nama" id="nama" #nama> <br>
+  <input type="text" name="Asal" id="Asal" #asal> <br>
+  <input type="text" name="nohp" id="nohp" #nohp> <br>
+  <button (click)="addData(id.value, nama.value, asal.value, nohp.value)">Simpan</button><br>
   <button (click)="goBack()">Kembali</button>
 </p>
