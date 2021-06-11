@@ -44,7 +44,29 @@ export class AnakKosService {
       .pipe(
         tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
         catchError(this.handleError<AnakKos>('getAnakKos'))
-      );
+      )
+  }
+
+  updateAnakKos(nama: string, asal: string, nohp: string, id: string) {
+    var anakKos = {
+      nama: nama,
+      asal: asal,
+      nohp: nohp
+    };
+    var request = JSON.stringify(anakKos)
+    console.log(request)
+    return this.httpClient.put<AnakKos>(`https://kosku-service.herokuapp.com/anakkos/${id}`, request, this.httpOptions)
+      .pipe(
+        tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
+        catchError(this.handleError<AnakKos>('getAnakKos'))
+      )
+  }
+
+  deleteAnakKos(id: string) {
+    return this.httpClient.delete<AnakKos>(`https://kosku-service.herokuapp.com/anakkos/${id}`)
+      .pipe(
+        catchError(this.handleError<AnakKos>('getAnakKos'))
+      )
   }
 
   findAnakKos(id: string) {

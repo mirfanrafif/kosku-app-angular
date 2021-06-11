@@ -14,8 +14,7 @@ export class DetailComponent implements OnInit {
   anakKos: AnakKos
 
   constructor(private anakKosService: AnakKosService,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -27,10 +26,6 @@ export class DetailComponent implements OnInit {
     this.anakKosService.findAnakKos(id).subscribe(it => {
       this.anakKos = it
     })
-  }
-
-  goBack() {
-    this.location.back()
   }
 
 }
