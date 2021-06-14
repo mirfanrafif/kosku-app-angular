@@ -23,10 +23,13 @@ export class AnakKosService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  baseUrl: string = "https://localhost:5001"
+
+
   constructor(private httpClient: HttpClient) { }
 
   getAnakKos(): Observable<AnakKos[]> {
-    return this.httpClient.get<AnakKos[]>('https://kosku-service.herokuapp.com/anakkos')
+    return this.httpClient.get<AnakKos[]>('/anakkos')
       .pipe(
         catchError(this.handleError<AnakKos[]>('getAnakKos', []))
       )
@@ -40,7 +43,7 @@ export class AnakKosService {
     };
     var request = JSON.stringify(anakKos)
     console.log(request)
-    return this.httpClient.post<AnakKos>('https://kosku-service.herokuapp.com/anakkos', request, this.httpOptions)
+    return this.httpClient.post<AnakKos>(this.baseUrl + '/anakkos', request, this.httpOptions)
       .pipe(
         tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
         catchError(this.handleError<AnakKos>('getAnakKos'))
@@ -55,7 +58,7 @@ export class AnakKosService {
     };
     var request = JSON.stringify(anakKos)
     console.log(request)
-    return this.httpClient.put<AnakKos>(`https://kosku-service.herokuapp.com/anakkos/${id}`, request, this.httpOptions)
+    return this.httpClient.put<AnakKos>(`${this.baseUrl}/anakkos/${id}`, request, this.httpOptions)
       .pipe(
         tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
         catchError(this.handleError<AnakKos>('getAnakKos'))
@@ -63,14 +66,14 @@ export class AnakKosService {
   }
 
   deleteAnakKos(id: string) {
-    return this.httpClient.delete<AnakKos>(`https://kosku-service.herokuapp.com/anakkos/${id}`)
+    return this.httpClient.delete<AnakKos>(`${this.baseUrl}/anakkos/${id}`)
       .pipe(
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )
   }
 
   findAnakKos(id: string) {
-    return this.httpClient.get<AnakKos>(`https://kosku-service.herokuapp.com/anakkos/${id}`)
+    return this.httpClient.get<AnakKos>(`${this.baseUrl}/anakkos/${id}`)
       .pipe(
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )
