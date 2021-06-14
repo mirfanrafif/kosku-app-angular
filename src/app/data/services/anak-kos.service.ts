@@ -8,19 +8,9 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: "root",
 })
 export class AnakKosService {
-  anakKos: AnakKos[] = [
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-    { _id: "qweqweqeq", nama: "Irfan", asal: "Malang", nohp: "082338819564" },
-  ];
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', })
   };
 
   baseUrl: string = "https://localhost:5001"
@@ -29,7 +19,7 @@ export class AnakKosService {
   constructor(private httpClient: HttpClient) { }
 
   getAnakKos(): Observable<AnakKos[]> {
-    return this.httpClient.get<AnakKos[]>('/anakkos')
+    return this.httpClient.get<AnakKos[]>(this.baseUrl + '/anakkos')
       .pipe(
         catchError(this.handleError<AnakKos[]>('getAnakKos', []))
       )
