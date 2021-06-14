@@ -29,7 +29,7 @@ export class AnakKosService {
   constructor(private httpClient: HttpClient) { }
 
   getAnakKos(): Observable<AnakKos[]> {
-    return this.httpClient.get<AnakKos[]>('/anakkos')
+    return this.httpClient.get<AnakKos[]>(this.baseUrl + '/anakkos')
       .pipe(
         catchError(this.handleError<AnakKos[]>('getAnakKos', []))
       )
