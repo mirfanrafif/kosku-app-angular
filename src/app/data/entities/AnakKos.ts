@@ -1,5 +1,5 @@
 export interface AnakKos {
-  _id: string,
+  id: number,
   nama: string,
   asal: string,
   nohp: string

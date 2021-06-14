@@ -35,12 +35,12 @@ export class AnakKosService {
     console.log(request)
     return this.httpClient.post<AnakKos>(this.baseUrl + '/anakkos', request, this.httpOptions)
       .pipe(
-        tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
+        tap((data: AnakKos) => console.log(`added hero w/ id=${data.id}`)),
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )
   }
 
-  updateAnakKos(nama: string, asal: string, nohp: string, id: string) {
+  updateAnakKos(nama: string, asal: string, nohp: string, id: number) {
     var anakKos = {
       nama: nama,
       asal: asal,
@@ -50,12 +50,12 @@ export class AnakKosService {
     console.log(request)
     return this.httpClient.put<AnakKos>(`${this.baseUrl}/anakkos/${id}`, request, this.httpOptions)
       .pipe(
-        tap((data: AnakKos) => console.log(`added hero w/ id=${data._id}`)),
+        tap((data: AnakKos) => console.log(`added hero w/ id=${data.id}`)),
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )
   }
 
-  deleteAnakKos(id: string) {
+  deleteAnakKos(id: number) {
     return this.httpClient.delete<AnakKos>(`${this.baseUrl}/anakkos/${id}`)
       .pipe(
         catchError(this.handleError<AnakKos>('getAnakKos'))

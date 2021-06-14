@@ -19,7 +19,7 @@ export class FormComponent implements OnInit {
 
   save(nama: string, asal: string, nomorhp: string) {
     if (this.anakKos != null) {
-      this.anakKosService.updateAnakKos(nama, asal, nomorhp, this.anakKos._id).subscribe(data => {
+      this.anakKosService.updateAnakKos(nama, asal, nomorhp, this.anakKos.id).subscribe(data => {
         console.log(data)
       })
     } else {
@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
   }
 
   hapus() {
-    this.anakKosService.deleteAnakKos(this.anakKos._id).subscribe(data => {
+    this.anakKosService.deleteAnakKos(this.anakKos.id).subscribe(data => {
       console.log(data)
       this.goBack()
     })
