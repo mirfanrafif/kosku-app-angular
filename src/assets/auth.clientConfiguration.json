@@ -1,0 +1,15 @@
+{
+    "stsServer": "https://localhost:5001",
+    "client_id": "client",
+    "response_type": "code",
+    "scope": "openid api1",
+    "redirectUrl": "https://localhost:4200",
+    "post_logout_redirect_uri": "https://localhost:4200",
+    "start_checksession": true,
+    "post_login_route": "/home",
+    "forbidden_route": "/forbidden",
+    "unauthorized_route": "/unauthorized",
+    "log_console_warning_active": true,
+    "log_console_debug_active": true,
+    "max_id_token_iat_offset_allowed_in_seconds": 10
+}

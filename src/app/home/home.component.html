@@ -1,21 +1,35 @@
 <div>
-  <button routerLink="/add">Tambah Data</button>
-  <table>
-    <thead>
-      <tr>
-        <td>ID</td>
-        <td>Nama</td>
-        <td>Asal</td>
-        <td>No HP</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of anakKos" routerLink="/detail/{{item.id}}">
-        <td>{{ item.id }}</td>
-        <td>{{ item.nama }}</td>
-        <td>{{ item.asal }}</td>
-        <td>{{ item.nohp }}</td>
-      </tr>
-    </tbody>
+  <button mat-raised-button color="primary" routerLink="/add">Tambah Data</button>
+  <table mat-table [dataSource]="anakKos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef> nama </th>
+      <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="asal">
+      <th mat-header-cell *matHeaderCellDef> Asal </th>
+      <td mat-cell *matCellDef="let element"> {{element.asal}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nohp">
+      <th mat-header-cell *matHeaderCellDef> No. HP </th>
+      <td mat-cell *matCellDef="let element"> {{element.nohp}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
   </table>
 </div>

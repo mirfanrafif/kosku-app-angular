@@ -9,8 +9,9 @@ import { AnakKosService } from "../data/services/anak-kos.service";
 })
 export class HomeComponent implements OnInit {
   anakKos: AnakKos[] = [];
+  displayedColumn = ["id", "nama", "asal", "nohp"]
 
-  constructor(private anakKosService: AnakKosService) {}
+  constructor(private anakKosService: AnakKosService) { }
 
   ngOnInit() {
     this.getData();
