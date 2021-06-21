@@ -59,6 +59,10 @@ export class AuthService {
     return this.oidcSecurityService.getToken()
   }
 
+  isAuthorized(): Observable<boolean> {
+    return this.oidcSecurityService.getIsAuthorized()
+  }
+
   private doCallbackLogicIfRequired() {
     this.oidcSecurityService.authorizedCallbackWithCode(window.location.toString())
   }
@@ -73,10 +77,6 @@ export class AuthService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  private logoff() {
-    return this.oidcSecurityService.logoff();
   }
 }
 

@@ -11,7 +11,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
+  isAuthorized = false
+
   ngOnInit() {
+    this.authService.isAuthorized().subscribe(data => {
+      this.isAuthorized = data
+    })
   }
 
   login(username: string, password: string) {
@@ -22,8 +27,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(userRequest)
   }
 
-  getToken(): string {
-    return this.authService.getToken();
+  logout() {
+    this.authService.logout()
   }
 
 }

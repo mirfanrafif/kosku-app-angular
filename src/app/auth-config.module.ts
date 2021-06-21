@@ -19,7 +19,7 @@ export class AuthConfigModule {
       client_id: 'kosku',
       response_type: 'code', // 'id_token token' Implicit Flow
       scope: 'openid profile api1',
-      post_logout_redirect_uri: 'https://localhost:4200/home',
+      post_logout_redirect_uri: '/home',
       start_checksession: false,
       post_login_route: '/home',
 
@@ -33,7 +33,8 @@ export class AuthConfigModule {
       max_id_token_iat_offset_allowed_in_seconds: 10,
     };
     const authWellKnownEndpoints: AuthWellKnownEndpoints = {
-      issuer: 'https://localhost:5001/.well-known/openid-configuration/jwks',
+      issuer: 'https://localhost:5001',
+      jwks_uri: 'https://localhost:5001/.well-known/openid-configuration/jwks',
       authorization_endpoint: 'https://localhost:5001/connect/authorize',
       token_endpoint: 'https://localhost:5001/connect/token',
       userinfo_endpoint: 'https://localhost:5001/connect/userinfo',

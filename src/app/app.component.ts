@@ -10,15 +10,8 @@ export class AppComponent implements OnInit {
   title = 'kosku-app';
   opened: boolean;
 
-  constructor(public oidcSecurityService: OidcSecurityService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.oidcSecurityService.getIsAuthorized().subscribe(auth => {
-      console.log(auth)
-    })
-
-    this.oidcSecurityService.getUserData().subscribe(userData => {
-      console.log(userData)
-    });
   }
 }
