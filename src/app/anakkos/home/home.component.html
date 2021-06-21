@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div style="text-align: center">
+    <h1 class="mat-display-1">Welcome to {{ title }}!</h1>
+  </div>
+
+  <button mat-raised-button color="primary" routerLink="/add">Tambah Data</button>
+  <table mat-table [dataSource]="anakKos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef> Nama </th>
+      <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="asal">
+      <th mat-header-cell *matHeaderCellDef> Asal </th>
+      <td mat-cell *matCellDef="let element"> {{element.asal}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nohp">
+      <th mat-header-cell *matHeaderCellDef> No. HP </th>
+      <td mat-cell *matCellDef="let element"> {{element.nohp}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumn;" routerLink="/detail/{{row.id}}"></tr>
+  </table>
+</div>

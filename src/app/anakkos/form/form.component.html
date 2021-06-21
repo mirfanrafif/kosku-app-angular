@@ -1,0 +1,20 @@
+<div class="container ">
+  <mat-form-field>
+    <input matInput placeholder="Nama" #nama value="{{anakKos?.nama}}">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Asal" #asal value="{{anakKos?.asal}}">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="No. HP" #nohp value="{{anakKos?.nohp}}">
+  </mat-form-field>
+  <br>
+
+  <button (click)="save(nama.value, asal.value, nohp.value)" mat-raised-button color="primary">Simpan</button>
+  <button (click)="goBack()" mat-raised-button color="accent">Kembali</button>
+  <button *ngIf="anakKos" (click)="hapus()">Hapus</button>
+</div>

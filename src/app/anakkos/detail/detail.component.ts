@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AnakKos } from '../data/entities/AnakKos';
-import { AnakKosService } from '../data/services/anak-kos.service';
+import { AnakKos } from '../../data/entities/AnakKos';
+import { AnakKosService } from '../../data/services/anak-kos.service';
 
 @Component({
   selector: 'app-detail',
