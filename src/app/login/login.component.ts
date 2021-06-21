@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { userRequest } from '../data/entities/UserRequest';
 import { AuthService } from '../data/services/auth-service.service';
 
 @Component({
@@ -13,14 +14,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() {
-    this.authService.login()
+  login(username: string, password: string) {
+    var userRequest: userRequest = {
+      username: username,
+      password: password
+    }
+    this.authService.login(userRequest)
   }
 
   getToken(): string {
-    var token = this.authService.getToken()
-    console.log(token)
-    return token
+    return this.authService.getToken();
   }
 
 }

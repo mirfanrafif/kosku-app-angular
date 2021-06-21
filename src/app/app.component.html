@@ -1,28 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<p>
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+        (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Login" routerLink="/login">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
 
-<div style="text-align: center">
-  <h1 class="mat-display-1">Welcome to {{ title }}!</h1>
-</div>
-
-<router-outlet></router-outlet>
-
-<app-login></app-login>
-<app-message></app-message>
+    <div style="text-align: center">
+      <h1 class="mat-display-1">Welcome to {{ title }}!</h1>
+    </div>
+    <router-outlet></router-outlet>
+    <app-message></app-message>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

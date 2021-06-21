@@ -12,9 +12,9 @@ import { AuthService } from "./auth-service.service";
 export class AnakKosService {
 
   getHeader() {
-    var token = `Bearer: ${this.authService.getToken()}`
+    var token = `Bearer ${this.authService.getToken()}`
     var httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':  token})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': token })
     };
     return httpOptions;
   }
@@ -25,7 +25,7 @@ export class AnakKosService {
   constructor(private httpClient: HttpClient, private messageService: MessageService, private authService: AuthService) { }
 
   getAnakKos(): Observable<AnakKos[]> {
-    return this.httpClient.get<AnakKos[]>(this.baseUrl + '/anakkos')
+    return this.httpClient.get<AnakKos[]>(this.baseUrl + '/anakkos', this.getHeader())
       .pipe(
         catchError(this.handleError<AnakKos[]>('getAnakKos', []))
       )

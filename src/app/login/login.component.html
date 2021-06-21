@@ -1,3 +1,13 @@
 <div>
-  <button (click)="login()" mat-raised-button color="primary">Login</button>
+  <mat-form-field>
+    <input matInput placeholder="Username" #username>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" #password type="password">
+  </mat-form-field>
+  <br>
+
+  <button (click)="login(username.value, password.value)" mat-raised-button color="primary">Login</button>
 </div>
