@@ -1,4 +1,9 @@
-<div>
+<div class="container">
+
+  <div style="text-align: center">
+    <h1 class="mat-display-1">Welcome to {{ title }}!</h1>
+  </div>
+
   <button mat-raised-button color="primary" routerLink="/add">Tambah Data</button>
   <table mat-table [dataSource]="anakKos" class="mat-elevation-z8">
 
@@ -30,6 +35,6 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumn;" routerLink="/detail/{{row.id}}"></tr>
   </table>
 </div>

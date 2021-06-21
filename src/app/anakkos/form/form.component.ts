@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { AnakKos } from '../data/entities/AnakKos';
-import { AnakKosService } from '../data/services/anak-kos.service';
+import { AnakKos } from '../../data/entities/AnakKos';
+import { AnakKosService } from '../../data/services/anak-kos.service';
 
 @Component({
   selector: 'app-form',

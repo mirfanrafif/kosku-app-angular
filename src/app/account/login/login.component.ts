@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { userRequest } from '../data/entities/UserRequest';
-import { AuthService } from '../data/services/auth-service.service';
+import { userRequest } from '../../data/entities/UserRequest';
+import { AuthService } from '../../data/services/auth-service.service';
 
 @Component({
   selector: 'app-login',

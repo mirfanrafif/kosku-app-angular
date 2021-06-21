@@ -62,14 +62,14 @@ export class AnakKosService {
   }
 
   deleteAnakKos(id: number) {
-    return this.httpClient.delete<AnakKos>(`${this.baseUrl}/anakkos/${id}`)
+    return this.httpClient.delete<AnakKos>(`${this.baseUrl}/anakkos/${id}`, this.getHeader())
       .pipe(
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )
   }
 
   findAnakKos(id: string) {
-    return this.httpClient.get<AnakKos>(`${this.baseUrl}/anakkos/${id}`)
+    return this.httpClient.get<AnakKos>(`${this.baseUrl}/anakkos/${id}`, this.getHeader())
       .pipe(
         catchError(this.handleError<AnakKos>('getAnakKos'))
       )

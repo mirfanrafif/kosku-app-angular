@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AnakKos } from "../data/entities/AnakKos";
-import { AnakKosService } from "../data/services/anak-kos.service";
+import { AnakKos } from "../../data/entities/AnakKos";
+import { AnakKosService } from "../../data/services/anak-kos.service";
 
 @Component({
   selector: "app-home",
@@ -10,6 +10,7 @@ import { AnakKosService } from "../data/services/anak-kos.service";
 export class HomeComponent implements OnInit {
   anakKos: AnakKos[] = [];
   displayedColumn = ["id", "nama", "asal", "nohp"]
+  title = "Kosku App"
 
   constructor(private anakKosService: AnakKosService) { }
 
