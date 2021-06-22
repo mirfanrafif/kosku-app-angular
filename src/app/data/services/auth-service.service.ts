@@ -16,13 +16,13 @@ export class AuthService {
     private httpClient: HttpClient,
     private messageService: MessageService) {
 
-    if (this.oidcSecurityService.moduleSetup) {
-      this.doCallbackLogicIfRequired();
-    } else {
-      this.oidcSecurityService.onModuleSetup.subscribe(() => {
-        this.doCallbackLogicIfRequired();
-      });
-    }
+    // if (this.oidcSecurityService.moduleSetup) {
+    //   this.doCallbackLogicIfRequired();
+    // } else {
+    //   this.oidcSecurityService.onModuleSetup.subscribe(() => {
+    //     this.doCallbackLogicIfRequired();
+    //   });
+    // }
 
   }
 
