@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatPaginator, MatTableDataSource } from "@angular/material";
 import { AnakKos } from "../../data/entities/AnakKos";
 import { AnakKosService } from "../../data/services/anak-kos.service";
 
@@ -8,19 +9,18 @@ import { AnakKosService } from "../../data/services/anak-kos.service";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
-  anakKos: AnakKos[] = [];
   displayedColumn = ["id", "nama", "asal", "nohp"]
   title = "Kosku App"
+  dataSource: MatTableDataSource<AnakKos>
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private anakKosService: AnakKosService) { }
 
   ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
     this.anakKosService.getAnakKos().subscribe((data) => {
-      this.anakKos = data;
+      this.dataSource = new MatTableDataSource<AnakKos>(data)
+      this.dataSource.paginator = this.paginator
     });
   }
 }

@@ -3,5 +3,9 @@
 }
 
 #sidenav {
-  margin-right: 32px;
+  width: 200px;
+}
+
+.container {
+  height: 100%;
 }

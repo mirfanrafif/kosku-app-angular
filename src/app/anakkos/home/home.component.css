@@ -1,4 +1,16 @@
-.container > * {
-    width: 1200px;
+.container {
+    display: flex;
+    max-width: 1200px;
     margin: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+}
+
+#btn_add {
+    width: fit-content;
 }
